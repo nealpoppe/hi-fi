@@ -13,15 +13,10 @@ const index = (req, res) => {
 
 // show
 const show = (req, res) => {
-    Record.findByPK(req.params.id, {
-        include: [{
-            model: users,
-            attributes: ["name"]
-        }]
-    })
+    Record.findByPk(req.params.id)
     .then(record => {
-        console.log(req.params);
-        res.render("show.ejs", {
+        console.log(req.params.id);
+        res.render("records/show.ejs", {
             record: record
         });
     })
@@ -42,9 +37,10 @@ const postRecord = (req, res) => {
 
 // renderEdit
 const renderEdit = (req, res) => {
-    Record.findByPK(req.params.id)
+    Record.findByPk(req.params.id)
     .then(record => {
-        res.render("edit.ejs", {
+        console.log(req.params);
+        res.render("records/edit.ejs", {
             record: record
         });
     })
