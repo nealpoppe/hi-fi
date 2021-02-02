@@ -4,5 +4,4 @@ const ctrl = require("../controllers");
 
 router.get("/", ctrl.record.index);
 
-
 module.exports = router;
