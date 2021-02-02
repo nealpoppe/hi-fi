@@ -27,6 +27,9 @@ const show = (req, res) => {
 }
 
 // renderNew
+const renderNew = (req, res) => {
+    res.render("new.ejs");
+}
 // postRecord
 // renderEdit
 // editRecord
@@ -35,5 +38,5 @@ const show = (req, res) => {
 module.exports = {
     index,
     show,
-    
+    renderNew,
 }
