@@ -35,6 +35,7 @@ const login = (req, res) => {
 const renderProfile = (req, res) => {
     User.findByPk(req.params.id)
     .then(userProfile => {
+        console.log(req.params.id)
         res.render("users/profile.ejs", {
             user: userProfile
         })
