@@ -20,6 +20,7 @@ const show = (req, res) => {
         }]
     })
     .then(record => {
+        console.log(req.params);
         res.render('show.ejs', {
             record: record
         });
@@ -30,13 +31,52 @@ const show = (req, res) => {
 const renderNew = (req, res) => {
     res.render("new.ejs");
 }
+
 // postRecord
+const postRecord = (req, res) => {
+    Record.create(req.body)
+    .then(newRecord => {
+        res.redirect("record") // not sure about this
+    })
+}
+
 // renderEdit
+const renderEdit = (req, res) => {
+    Record.findByPK(req.params.id)
+    .then(record => {
+        res.render("edit.ejs", {
+            record: record
+        });
+    })
+}
+
 // editRecord
+const editRecord = (req,res) => {
+    Record.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+    .then(record => {
+        res.redirect('/record');
+    })
+}
+
 // deleteRecord
+const deleteRecord = (req, res) => {
+    Record.destroy({
+        where: { id: req.params.id}
+    })
+    .then(() => {
+        res.redirect('/pokemon');
+    })
+}
 
 module.exports = {
     index,
     show,
     renderNew,
+    postRecord,
+    renderEdit,
+    editRecord,
+    deleteRecord
 }
