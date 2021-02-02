@@ -12,6 +12,20 @@ const index = (req, res) => {
 }
 
 // show
+const show = (req, res) => {
+    Record.findByPK(req.params.id, {
+        include: [{
+            model: users,
+            attributes: ['name']
+        }]
+    })
+    .then(record => {
+        res.render('show.ejs', {
+            record: record
+        });
+    })
+}
+
 // renderNew
 // postRecord
 // renderEdit
@@ -20,4 +34,6 @@ const index = (req, res) => {
 
 module.exports = {
     index,
+    show,
+    
 }
