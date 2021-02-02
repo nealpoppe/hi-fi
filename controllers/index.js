@@ -1,4 +1,4 @@
 module.exports = {
-    records: require('./records'),
+    record: require('./record'),
     users: require('./users')
 }
