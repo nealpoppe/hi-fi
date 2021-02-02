@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "development": {    
+=======
+  "development": {
+>>>>>>> 92d4915c0ead46090ffde06661bff0f91212bb7e
     "database": "hifi_dev",
     "host": "127.0.0.1",
     "dialect": "postgres",

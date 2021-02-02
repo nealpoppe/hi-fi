@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/app.css" />
-</head>
-<body>
-    <h1>Welcome to HiFi App</h1>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Records index page</h1>
+        <nav>
+            <a href="/records/new">Create a New Record</a>
+        </nav>
+        <ul>
+            <% for(let i=0; i < records.length; i++) { %>
+                <li>
+                    <a href="/records/<%=i%>"> <%=records[i].name %></a>
 
+                    <form action="/records/<%=i%>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" />
+                    </form>
 
-</body>
+                    <a href="/records/<%=i%>/edit">EDIT</a>
+                </li>
+            <% } %>
+        </ul>
+    </body>
 </html>
