@@ -1,5 +1,6 @@
 const Record = require("../models").Record;
 
+// index
 const index = (req, res) => {
     Record.findAll()
     .then(records => {
@@ -8,6 +9,14 @@ const index = (req, res) => {
         });
     })
 }
+
+// show
+
+// renderNew
+
+// postRecord
+
+// render Edit
 
 module.exports = {
     index,
