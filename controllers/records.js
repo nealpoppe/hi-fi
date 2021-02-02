@@ -1,11 +1,11 @@
-const Record = require('../models').Record;
+const Record = require("../models").Record;
 
 // index
 const index = (req, res) => {
     Record.findAll()
     .then(records => {
-        console.log('index');
-        res.render('records/index.ejs', {
+        console.log("index");
+        res.render("records/index.ejs", {
             records: records
         });
     })
@@ -16,12 +16,12 @@ const show = (req, res) => {
     Record.findByPK(req.params.id, {
         include: [{
             model: users,
-            attributes: ['name']
+            attributes: ["name"]
         }]
     })
     .then(record => {
         console.log(req.params);
-        res.render('show.ejs', {
+        res.render("show.ejs", {
             record: record
         });
     })
@@ -57,7 +57,7 @@ const editRecord = (req,res) => {
         returning: true
     })
     .then(record => {
-        res.redirect('/record');
+        res.redirect("/record");
     })
 }
 
@@ -67,7 +67,7 @@ const deleteRecord = (req, res) => {
         where: { id: req.params.id}
     })
     .then(() => {
-        res.redirect('/pokemon');
+        res.redirect("/pokemon");
     })
 }
 
