@@ -11,7 +11,6 @@ const renderSignup = (req, res) => {
 const signup = (req, res) => {
     User.create(req.body)
     .then(newUser => {
-        console.log(newUser);
         res.redirect(`/users/profile/${newUser.id}`);
     })
 };
@@ -35,7 +34,6 @@ const login = (req, res) => {
 const renderProfile = (req, res) => {
     User.findByPk(req.params.id)
     .then(userProfile => {
-        console.log(req.params.id)
         res.render("users/profile.ejs", {
             user: userProfile
         })
