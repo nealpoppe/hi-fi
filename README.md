@@ -2,6 +2,13 @@
 
 This is a project to work on Model View Controllers and GitHub collaboration. We created an app to track record ownership.
 
+### Project Links
+[Here is the project repository](https://github.com/nealpoppe/hi-fi)
+[Here is the published project]()
+
+#### Entity Relationship Diagram
+![ERD](./images/ERD.png)
+
 ### Current Features
 * User Profile page
   * Welcoming the user
@@ -35,8 +42,19 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
 * Express/EJS
 * Heroku
 
-#### Entity Relationship Diagram
-![ERD](./images/ERD.png)
+### Example Code
+.gitignore file (see errors below)
+```
+node_modules
+config/
+```
 
-[Here is the project repository]()
-[Here is the published project]()
+### Issues and Resolutions
+Due to different hardware setups, we all required different config file. We were abel to add ```//config/``` to the gitignore file to avoid issues.
+
+With three people working on this project we had to figure out how to all work in the same files without creating errors. We decided to all work in the main branch, but on different sections. We let the first person push their code, then the others had to pull to update their files.
+
+### Additional Comments
+We all crated the initial migration and seed files together, with one person coding. Then we all had to do the installs to make sure our SQL DB's matched.
+
+We discussed a style guide to keep our code consistent, lilke using req.params.id vs req.params.index, and all using double quotes instead of single quotes.
