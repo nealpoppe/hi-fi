@@ -33,6 +33,7 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
 * JOIN tables
 * Sequlize
 * Express/EJS
+* Heroku
 
 #### Entity Relationship Diagram
 ![ERD](./images/ERD.png)
