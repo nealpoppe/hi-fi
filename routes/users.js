@@ -10,5 +10,6 @@ router.post("/login", ctrl.users.login);
 router.get("/profile/:id", ctrl.users.renderProfile);
 router.delete('/:id', ctrl.users.deleteUser);
 router.put('/profile/:id', ctrl.users.editProfile);
+router.put('/profile/:id', ctrl.users.removeRecord);
 
 module.exports = router;
