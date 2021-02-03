@@ -54,18 +54,28 @@ const renderProfile = (req, res) => {
 const editProfile = (req, res) => {
     User.update(req.body, {
         where: {
-            id: req.params.index
+            id: req.params.id
         },
         returning: true
     })
     .then(updatedUser => {
-        res.redirect(`/users/profile/${req.params.index}`);
+        Record.findByPk(req.body.recordId)
+        .then(foundRecord => {
+            User.findByPk(req.params.id)
+            .then(foundUser => {
+                foundUser.addRecord(foundRecord);  
+                res.redirect(`/users/profile/${req.params.id}`);  
+
+            })   
+            
+        })
+        
     })
 }
 
 const deleteUser = (req, res) => {
     User.destroy({ 
-        where: { id: req.params.index } })
+        where: { id: req.params.id } })
     .then(() => {
         res.redirect('/users');
     })

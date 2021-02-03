@@ -13,6 +13,18 @@
         Name: <input type="text" name="name" value=<%=user.name%> /><br> <br>
         Username: <input type="text" name="username" value=<%=user.username%> /> <br> <br>
         Password: <input type="text" name="password" value=<%=user.password%> /><br> <br>  
+
+        Add a record to your collection. <br>
+        <select name="recordId">
+            <% for (let i = 0; i < records.length; i++)  {
+                let selected = (i == 0) ? "selected": "" ;
+            %> 
+                <option value="<%= records[i].id %>" <%= selected %>>
+                    <%= records[i].title %>
+                    
+                </option>
+            <% } %>
+        </select>
         <input type="submit" value="Edit Profile" />
     </form>
     <br>
