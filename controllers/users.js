@@ -75,9 +75,9 @@ const editProfile = (req, res) => {
 
 const removeRecord = (req, res) => {
     UserRecord.destroy({
-        where: { recordId: req.body.id } })
+        where: { recordId: req.body.removeRecId } })
         .then(() => {
-            console.log(req.body.id)
+            console.log(req.body.removeRecId)
             res.redirect(`/users/profile/${req.params.id}`);
         })
 }
