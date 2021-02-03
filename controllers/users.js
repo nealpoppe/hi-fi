@@ -1,5 +1,6 @@
 const User = require("../models").User;
 const Record = require("../models").Record;
+const UserRecord = require("../models").UserRecord;
 
 
 const index = (req, res) => {
