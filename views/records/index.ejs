@@ -12,14 +12,16 @@
         <ul>
             <% for(let i=0; i < records.length; i++) { %>
                 <li>
-                    <a href="/records/<%=i%>"> <%=records[i].title %></a>
+                    <a href="/records/<%=records[i].id%>"> <%=records[i].title %></a><br>
                     <a> <%=records[i].artist %></a>
 
-                    <form action="/records/<%=i%>?_method=DELETE" method="POST">
-                        <input type="submit" value="DELETE" />
-                    </form>
+                    <form action="/records/<%=records[i].id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" /><br>
+                        <a href="/records/<%=records[i].id%>/edit">EDIT</a>
+                    </form><br>
 
-                    <a href="/records/<%=i%>/edit">EDIT</a>
+                    
+                    
                 </li>
             <% } %>
         </ul>

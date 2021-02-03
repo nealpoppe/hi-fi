@@ -15,7 +15,6 @@ const index = (req, res) => {
 const show = (req, res) => {
     Record.findByPk(req.params.id)
     .then(record => {
-        console.log(req.params.id);
         res.render("records/show.ejs", {
             record: record
         });
@@ -24,14 +23,14 @@ const show = (req, res) => {
 
 // renderNew
 const renderNew = (req, res) => {
-    res.render("new.ejs");
+    res.render("records/new.ejs");
 }
 
 // postRecord
 const postRecord = (req, res) => {
     Record.create(req.body)
     .then(newRecord => {
-        res.redirect("record") // not sure about this
+        res.redirect("records") // not sure about this
     })
 }
 
@@ -39,7 +38,6 @@ const postRecord = (req, res) => {
 const renderEdit = (req, res) => {
     Record.findByPk(req.params.id)
     .then(record => {
-        console.log(req.params);
         res.render("records/edit.ejs", {
             record: record
         });
@@ -63,7 +61,9 @@ const deleteRecord = (req, res) => {
         where: { id: req.params.id}
     })
     .then(() => {
-        res.redirect("/pokemon");
+        console.log("in delete");
+        console.log(req.body);
+        res.redirect("/records");
     })
 }
 

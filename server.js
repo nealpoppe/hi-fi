@@ -1,6 +1,6 @@
 const express = require('express');
-
 const app = express();
+const methodOverride = require('method-override');
 
 const routes = require('./routes');
 
@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use(methodOverride('_method'));
 
 // not sure where this goes
 app.set('view engine', 'ejs');

@@ -8,6 +8,6 @@ router.post("/", ctrl.records.postRecord); // postRecord
 router.get("/:id", ctrl.records.show); // show
 router.get("/:id/edit", ctrl.records.renderEdit); // renderEdit
 router.put("/:id", ctrl.records.editRecord); // editRecord
-router.delete("/:id", ctrl.records.deleteRecord);
+router.delete("/:id", ctrl.records.deleteRecord); // deleteRecord
 
 module.exports = router;

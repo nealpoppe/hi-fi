@@ -7,9 +7,9 @@
     </head>
     <body>
         <h1>Edit Records Page</h1>
-        <form action="/records/<%=index%>?_method=PUT" method="POST">
-        Title: <input type="text" name="title" value="<%=records.title%>"/><br/>
-        Artist: <input type="text" name="artist" value="<%=records.artist%>"/><br/>
+        <form action="/records/<%=record.id%>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" value="<%=record.title%>"/><br/>
+        Artist: <input type="text" name="artist" value="<%=record.artist%>"/><br/>
 		
 		
 		<br/>
