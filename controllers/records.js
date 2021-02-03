@@ -1,4 +1,5 @@
 const Record = require("../models").Record;
+const User = require("../models").User;
 
 // index
 const index = (req, res) => {
@@ -12,7 +13,14 @@ const index = (req, res) => {
 
 // show
 const show = (req, res) => {
-    Record.findByPk(req.params.id)
+    Record.findByPk(req.params.id, {
+        include: [
+            {
+                model: User,
+                attributes: ["name"]
+            }
+        ]
+    })
     .then(record => {
         res.render("records/show.ejs", {
             record: record
@@ -35,11 +43,22 @@ const postRecord = (req, res) => {
 
 // renderEdit
 const renderEdit = (req, res) => {
-    Record.findByPk(req.params.id)
+    Record.findByPk(req.params.id, {
+        include: [
+            {
+                model: User,
+                attributes: ["name"]
+            }
+        ]
+    })
     .then(record => {
-        res.render("records/edit.ejs", {
-            record: record
-        });
+        User.findAll()
+        .then(allUsers => {
+            res.render("records/edit.ejs", {
+                record: record,
+                users: allUsers
+            });
+        })
     })
 }
 
@@ -50,7 +69,7 @@ const editRecord = (req,res) => {
         returning: true
     })
     .then(record => {
-        res.redirect("/record");
+        res.redirect("/records");
     })
 }
 

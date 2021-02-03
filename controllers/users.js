@@ -1,4 +1,6 @@
 const User = require("../models").User;
+const Record = require("../models").Record;
+
 
 const index = (req, res) => {
     res.render("users/index.ejs")
@@ -32,10 +34,19 @@ const login = (req, res) => {
 };
 
 const renderProfile = (req, res) => {
-    User.findByPk(req.params.id)
+    User.findByPk(req.params.id, {
+        include: [{
+            model: Record,
+            attributes: ["id", "title"]
+        }]
+    })
     .then(userProfile => {
-        res.render("users/profile.ejs", {
-            user: userProfile
+        Record.findAll()
+        .then(allRecords => {
+            res.render("users/profile.ejs", {
+                user: userProfile,
+                records: allRecords
+            })        
         })
      })
 };
@@ -43,18 +54,28 @@ const renderProfile = (req, res) => {
 const editProfile = (req, res) => {
     User.update(req.body, {
         where: {
-            id: req.params.index
+            id: req.params.id
         },
         returning: true
     })
     .then(updatedUser => {
-        res.redirect(`/users/profile/${req.params.index}`);
+        Record.findByPk(req.body.recordId)
+        .then(foundRecord => {
+            User.findByPk(req.params.id)
+            .then(foundUser => {
+                foundUser.addRecord(foundRecord);  
+                res.redirect(`/users/profile/${req.params.id}`);  
+
+            })   
+            
+        })
+        
     })
 }
 
 const deleteUser = (req, res) => {
     User.destroy({ 
-        where: { id: req.params.index } })
+        where: { id: req.params.id } })
     .then(() => {
         res.redirect('/users');
     })

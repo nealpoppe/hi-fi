@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>Edit Records Page</h1>
+        <h1>Record Edit Page</h1>
         <form action="/records/<%=record.id%>?_method=PUT" method="POST">
         Title: <input type="text" name="title" value="<%=record.title%>"/><br/>
         Artist: <input type="text" name="artist" value="<%=record.artist%>"/><br/>
@@ -15,5 +15,12 @@
 		<br/>
 		<input type="submit" name="" value="Submit Changes"/>
         </form>
+        <h3>Owned by:</h3>
+        <% for (let i=0; i<record.Users.length; i++) { %>
+            <li>
+                <%=record.Users[i].name%>
+            </li>
+        <% } %>
+    
     </body>
 </html>

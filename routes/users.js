@@ -8,7 +8,7 @@ router.post("/signup", ctrl.users.signup);
 router.get("/login", ctrl.users.renderLogin);
 router.post("/login", ctrl.users.login);
 router.get("/profile/:id", ctrl.users.renderProfile);
-router.delete('/:index', ctrl.users.deleteUser);
-router.put('/profile/:index', ctrl.users.editProfile);
+router.delete('/:id', ctrl.users.deleteUser);
+router.put('/profile/:id', ctrl.users.editProfile);
 
 module.exports = router;
