@@ -20,7 +20,7 @@
                 let selected = (i == 0) ? "selected": "" ;
             %> 
                 <option value="<%= records[i].id %>" <%= selected %>>
-                    <%= records[i].title %>
+                    <%= records[i].title %> 
                     
                 </option>
             <% } %>
@@ -33,6 +33,9 @@
         <% for (let i=0; i< user.Records.length; i++) { %>
             <li>
                 <%= user.Records[i].title%>
+                <form action="/users/<%=user.Records[i].id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Remove record" />
+                </form>
             </li>
             <br>
             <% } %>

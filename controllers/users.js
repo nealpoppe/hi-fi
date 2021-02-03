@@ -73,6 +73,15 @@ const editProfile = (req, res) => {
     })
 }
 
+const removeRecord = (req, res) => {
+    UserRecord.destroy({
+        where: { recordId: req.body.id } })
+        .then(() => {
+            console.log(req.body.id)
+            res.redirect(`/users/profile/${req.params.id}`);
+        })
+}
+
 const deleteUser = (req, res) => {
     User.destroy({ 
         where: { id: req.params.id } })
@@ -92,5 +101,6 @@ module.exports = {
     renderProfile,
     deleteUser,
     editProfile,
+    removeRecord,
 
 }

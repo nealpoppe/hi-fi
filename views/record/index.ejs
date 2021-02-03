@@ -16,12 +16,9 @@
                     <a> <%=records[i].artist %></a>
 
                     <form action="/records/<%=records[i].id%>?_method=DELETE" method="POST">
+                        <a href="/records/<%=records[i].id%>/edit">EDIT</a><br>
                         <input type="submit" value="DELETE" /><br>
-                        <a href="/records/<%=records[i].id%>/edit">EDIT</a>
                     </form><br>
-
-                    
-                    
                 </li>
             <% } %>
         </ul>
