@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/users.css" />
 </head>
 <body>
     <h1>Welcome <%=user.name%></h1>
@@ -28,14 +29,27 @@
         <input type="submit" value="Edit Profile" />
     </form>
     <br>
+    Remove a Record from your collection.
+    <form action="/users/profile/<%=user.id%>?_method=DELETE" method="POST">
+        <select name="removeRecId">
+            <% for (let i = 0; i < user.Records.length; i++)  {
+                let selected = (i == 0) ? "selected": "" ;
+            %> 
+                <option value="<%= user.Records[i].id %>" <%= selected %>>
+                    <%= user.Records[i].title %> 
+                    
+                </option>
+            <% } %>
+        </select>
+        <input type="submit" value="Remove record" />
+    </form>
+    <br>
     <h3>You have these records</h3>
     <ul>
         <% for (let i=0; i< user.Records.length; i++) { %>
             <li>
                 <%= user.Records[i].title%>
-                <form action="/users/<%=user.Records[i].id%>?_method=DELETE" method="POST">
-                    <input type="submit" value="Remove record" />
-                </form>
+                
             </li>
             <br>
             <% } %>
