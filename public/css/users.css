@@ -1,11 +1,15 @@
 h1 {
     color: black;
-    font-family: 'Ruluko', sans-serif;
+    font-family: 'Newf Rocker', cursive;
 }
 
-.Signup {
-    color: yellowgreen;
-    background-color: black;
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+    font-family: 'Newf Rocker', cursive;
 }
 
 html {
