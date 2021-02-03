@@ -1,9 +1,11 @@
 h1 {
-    color: yellowgreen;
+    color: black;
+    font-family: 'Ruluko', sans-serif;
 }
 
-Signup {
-    color: black;
+.Signup {
+    color: yellowgreen;
+    background-color: black;
 }
 
 html {
