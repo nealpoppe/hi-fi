@@ -5,7 +5,6 @@ const User = require("../models").User;
 const index = (req, res) => {
     Record.findAll()
     .then(records => {
-        console.log("inside index")
         res.render("records/index.ejs", {
             records: records
         });
