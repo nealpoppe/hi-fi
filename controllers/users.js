@@ -1,4 +1,6 @@
 const User = require("../models").User;
+const Record = require("../models").Record;
+
 
 const index = (req, res) => {
     res.render("users/index.ejs")
@@ -32,10 +34,19 @@ const login = (req, res) => {
 };
 
 const renderProfile = (req, res) => {
-    User.findByPk(req.params.id)
+    User.findByPk(req.params.id, {
+        include: [{
+            model: Record,
+            attributes: ["id", "title"]
+        }]
+    })
     .then(userProfile => {
-        res.render("users/profile.ejs", {
-            user: userProfile
+        Record.findAll()
+        .then(allRecords => {
+            res.render("users/profile.ejs", {
+                user: userProfile,
+                records: allRecords
+            })        
         })
      })
 };

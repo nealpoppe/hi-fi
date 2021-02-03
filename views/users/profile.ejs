@@ -15,7 +15,16 @@
         Password: <input type="text" name="password" value=<%=user.password%> /><br> <br>  
         <input type="submit" value="Edit Profile" />
     </form>
-
+    <br>
+    <h3>You have these records</h3>
+    <ul>
+        <% for (let i=0; i< user.Records.length; i++) { %>
+            <li>
+                <%= user.Records[i].title%>
+            </li>
+            <br>
+            <% } %>
+    </ul>
     <br>
     <form action="/users/<%=user.id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete User" />
