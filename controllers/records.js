@@ -4,7 +4,6 @@ const Record = require("../models").Record;
 const index = (req, res) => {
     Record.findAll()
     .then(records => {
-        console.log("index");
         res.render("records/index.ejs", {
             records: records
         });
@@ -61,8 +60,6 @@ const deleteRecord = (req, res) => {
         where: { id: req.params.id}
     })
     .then(() => {
-        console.log("in delete");
-        console.log(req.body);
         res.redirect("/records");
     })
 }
