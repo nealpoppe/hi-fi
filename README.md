@@ -36,3 +36,6 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
 
 #### Entity Relationship Diagram
 ![ERD](./images/ERD.png)
+
+[Here is the project repository]()
+[Here is the published project]()
