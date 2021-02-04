@@ -74,6 +74,18 @@ const editProfile = (req, res) => {
     })
 }
 
+const addRecord = (req, res) => {
+    Record.findByPk(req.body.recordId)
+        .then(foundRecord => {
+            User.findByPk(req.params.id)
+            .then(foundUser => {
+                foundUser.addRecord(foundRecord);  
+                res.redirect(`/users/profile/${req.params.id}`);
+            })
+        })
+}
+        
+
 const removeRecord = (req, res) => {
     UserRecord.destroy({
         where: { recordId: req.body.removeRecId } })
@@ -103,5 +115,6 @@ module.exports = {
     deleteUser,
     editProfile,
     removeRecord,
+    addRecord,
 
 }
