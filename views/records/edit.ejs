@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/records.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="container">
         <h1>Record Edit Page</h1>
         <form action="/records/<%=record.id%>?_method=PUT" method="POST">
         Title: <input type="text" name="title" value="<%=record.title%>"/><br/>
@@ -20,7 +23,7 @@
             <li>
                 <%=record.Users[i].name%>
             </li>
-        <% } %>
-    
+        <% } %><br>
+        </div>
     </body>
 </html>

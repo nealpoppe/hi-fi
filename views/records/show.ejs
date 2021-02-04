@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/records.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
     <h1>Record Show Page</h1>
     <%=record.title%> by <%=record.artist%>
     <h3>Owned by:</h3>
@@ -14,6 +16,7 @@
             <li>
                 <%=record.Users[i].name%>
             </li>
-        <% } %>
+        <% } %><br>
+    </div>
 </body>
 </html>
