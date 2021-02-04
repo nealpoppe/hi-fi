@@ -59,17 +59,25 @@ const editProfile = (req, res) => {
         },
         returning: true
     })
-    .then(updatedUser => {          
-                res.redirect(`/users/profile/${req.params.id}`);  
-            })    
-}
-
-const addRecord = (req, res) => {
-    Record.findByPk(req.body.recordId)
+    .then(updatedUser => {
+        Record.findByPk(req.body.recordId)
         .then(foundRecord => {
             User.findByPk(req.params.id)
             .then(foundUser => {
                 foundUser.addRecord(foundRecord);  
+                res.redirect(`/users/profile/${req.params.id}`);
+            })           
+        })        
+    })
+}
+
+const addRecord = (req, res) => {    
+        User.findByPk(req.params.id)
+        .then(foundUser => {
+            Record.findByPk(req.body.recordId)
+            .then(foundRecord => {
+                foundUser.addRecord(foundRecord);  
+                console.log("line 80")
                 res.redirect(`/users/profile/${req.params.id}`);
             })
         })
