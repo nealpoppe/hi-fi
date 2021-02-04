@@ -1,0 +1,18 @@
+body {
+    min-height: 100%;
+    background-image: url(https://www.earlham.lib.ia.us/theme_resources/colorfulrecordbackground/image);
+
+}
+
+h1 {
+    color: black;
+    font-family: 'New Rocker', cursive;
+}
+
+.container {
+    width: 400px;
+    background-color: lightgray;
+    border: solid black;
+    border-radius: 25px;
+    padding-left: 50px;
+}

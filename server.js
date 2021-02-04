@@ -26,6 +26,6 @@ app.get('/',(req,res) => {
     res.render('users/index.ejs');
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Running on port 3000!");
 });
