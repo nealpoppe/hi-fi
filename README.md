@@ -3,8 +3,9 @@
 This is a project to work on Model View Controllers and GitHub collaboration. We created an app to track record ownership.
 
 ### Project Links
-[Here is the project repository](https://github.com/nealpoppe/hi-fi)
-[Here is the published project]()
+[Here is the project repository.](https://github.com/nealpoppe/hi-fi)
+
+[Here is the published project.]()
 
 #### Entity Relationship Diagram
 ![ERD](./images/ERD.png)
