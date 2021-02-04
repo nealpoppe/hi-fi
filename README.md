@@ -5,7 +5,7 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
 ### Project Links
 [Here is the project repository.](https://github.com/nealpoppe/hi-fi)
 
-[Here is the published project.]()
+[Here is the published project.](https://hi-fi-crue.herokuapp.com/)
 
 #### Entity Relationship Diagram
 ![ERD](./images/ERD.png)
@@ -54,6 +54,19 @@ config/
 Due to different hardware setups, we all required different config file. We were abel to add ```//config/``` to the gitignore file to avoid issues.
 
 With three people working on this project we had to figure out how to all work in the same files without creating errors. We decided to all work in the main branch, but on different sections. We let the first person push their code, then the others had to pull to update their files.
+
+Multiple issues setting up Heroku. Recieved error code H10 status 503. Double checked our config.json scripts.
+We did not have the following code in our server.js.
+```
+app.get('/',(req,res) => {
+   res.render('users/index.ejs');
+})
+```
+We did not have a .env file and had to modify the app.listen that was hardcoded to port 3000. We also used the following code to get to our front page
+```
+heroku config:unset --hi-fi-crew
+heroku config:set production =use_env_variable
+```
 
 ### Additional Comments
 We all crated the initial migration and seed files together, with one person coding. Then we all had to do the installs to make sure our SQL DB's matched.
