@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
     <h1>Welcome <%=user.name%></h1>
 
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
@@ -67,6 +68,7 @@
     </form>
 
     <br><br>
-    <a href="/records">View All Records</a>
+    <a href="/records">View All Records</a><br>
+    </div>
 </body>
 </html>

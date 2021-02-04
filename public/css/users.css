@@ -18,7 +18,14 @@ a:visited {
 }
 
 body {
-    background-blend-mode: color-dodge;
+    background-color: #fe485e;
     background-repeat: no-repeat;
     background-image: url(https://wallpaperaccess.com/full/1892834.jpg);
+}
+.container {
+    width: 400px;
+    background-color: lightgray;
+    border: solid black;
+    border-radius: 25px;
+    padding-left: 50px;
 }
