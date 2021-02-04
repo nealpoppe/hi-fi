@@ -55,7 +55,7 @@ Due to different hardware setups, we all required different config file. We were
 
 With three people working on this project we had to figure out how to all work in the same files without creating errors. We decided to all work in the main branch, but on different sections. We let the first person push their code, then the others had to pull to update their files.
 
-Multiple issues setting up Heroku. Recieved error code H10 status 503. Double checked our config.json scripts.
+Multiple issues setting up Heroku. We had to undo our gitignore fix in order to publish correctly. Recieved error code H10 status 503. Double checked our config.json scripts.
 We did not have the following code in our server.js.
 ```
 app.get('/',(req,res) => {
