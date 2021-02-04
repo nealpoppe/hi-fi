@@ -21,8 +21,9 @@ app.set('view engine', 'ejs');
 app.use('/users', routes.users);
 app.use('/records', routes.records);
 
-
-
+app.get('/',(req,res) => {
+    res.render('users/index.ejs');
+})
 
 app.listen(3000, () => {
     console.log("Running on port 3000!");
