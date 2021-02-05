@@ -43,7 +43,7 @@ body {
 }
 .container {
     width: 400px;
-    background-color: lightgray;
+    background-color: #fd91a1;
     border: solid black;
     border-radius: 25px;
     padding-left: 50px;

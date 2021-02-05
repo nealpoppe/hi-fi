@@ -17,7 +17,7 @@
             <% for(let i=0; i < records.length; i++) { %>
                 <li>
                     <a href="/records/<%=records[i].id%>"> <%=records[i].title %></a><br>
-                    <a> <%=records[i].artist %></a>
+                    <%=records[i].artist %>
 
                     <form action="/records/<%=records[i].id%>?_method=DELETE" method="POST">
                         <a href="/records/<%=records[i].id%>/edit">EDIT</a><br>

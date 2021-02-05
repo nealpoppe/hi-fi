@@ -2,11 +2,9 @@ const User = require("../models").User;
 const Record = require("../models").Record;
 const UserRecord = require("../models").UserRecord;
 
-
 const index = (req, res) => {
     res.render("users/index.ejs")
 };
-
 
 const renderSignup = (req, res) => {
     res.render("users/signup.ejs")
@@ -17,7 +15,6 @@ const signup = (req, res) => {
         res.redirect(`/users/profile/${newUser.id}`);
     })
 };
-
 
 const renderLogin = (req, res) => {
     res.render("users/login.ejs")
@@ -77,18 +74,15 @@ const addRecord = (req, res) => {
             Record.findByPk(req.body.recordId)
             .then(foundRecord => {
                 foundUser.addRecord(foundRecord);  
-                console.log("line 80")
                 res.redirect(`/users/profile/${req.params.id}`);
             })
         })
-}
-        
+}   
 
 const removeRecord = (req, res) => {
     UserRecord.destroy({
         where: { recordId: req.body.removeRecId } })
         .then(() => {
-            console.log(req.body.removeRecId)
             res.redirect(`/users/profile/${req.params.id}`);
         })
 }
@@ -100,8 +94,6 @@ const deleteUser = (req, res) => {
         res.redirect('/users');
     })
 };
-
-
 
 module.exports = {
     index,

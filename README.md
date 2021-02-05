@@ -18,6 +18,7 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
   * Edit user button
   * Delete user button
   * Shows the users collection
+  * Button to remove owned record
 * Record index page
   * Create a new record
   * List record by title and artist
@@ -25,7 +26,6 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
   * Delete record button
 
 ### Planned Features
-* Button to remove owned record
 * Add record genre table
 * CSS styling
 * Encrypt passwords
@@ -49,6 +49,27 @@ This is a project to work on Model View Controllers and GitHub collaboration. We
 node_modules
 config/
 ```
+Add and remove records
+```
+const addRecord = (req, res) => {    
+        User.findByPk(req.params.id)
+        .then(foundUser => {
+            Record.findByPk(req.body.recordId)
+            .then(foundRecord => {
+                foundUser.addRecord(foundRecord);  
+                res.redirect(`/users/profile/${req.params.id}`);
+            })
+        })
+}   
+
+const removeRecord = (req, res) => {
+    UserRecord.destroy({
+        where: { recordId: req.body.removeRecId } })
+        .then(() => {
+            res.redirect(`/users/profile/${req.params.id}`);
+        })
+}
+```
 
 ### Issues and Resolutions (How We Spent Six Hours Deploying)
 Due to different hardware setups, we all required different config file. We were abel to add ```//config/``` to the gitignore file to avoid issues.
@@ -62,12 +83,12 @@ app.get('/',(req,res) => {
    res.render('users/index.ejs');
 })
 ```
-We did not have a .env file and had to modify the app.listen that was hardcoded to port 3000. We also used the following code to get to our front page
+We did not have a .env file and had to modify the app.listen that was hardcoded to port 3000. We also used the following code to get to our front page.
 ```
 heroku config:unset --hi-fi-crew
 heroku config:set production =use_env_variable
 ```
-We also needed to add the following code in order to set up our database
+We also needed to add the following code the config file in order to set up our database
 ```
 "dialectOptions": {
         "ssl": {
