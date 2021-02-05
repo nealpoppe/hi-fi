@@ -1,20 +1,39 @@
 h1 {
     color: black;
     font-family: 'New Rocker', cursive;
-    font-size: 50px;
+    font-size: 60px;
+    text-shadow: 3px 3px rgb(197, 160, 160);
 }
 
 a:link {
     font-weight: bold;
     color: black;
-    font-family: 'New Rocker', cursive;
+    font-size: 30px;
+    text-decoration: none;
+    text-shadow: 2px 2px rgb(197, 160, 160);
+
 }
 
 a:visited {
+    font-weight: bold;
     color: black;
-    font-family: 'New Rocker', cursive;
+    font-size: 30px;
+    text-decoration: none;
+    text-shadow: 2px 2px rgb(197, 160, 160);
+}
 
-    
+a:hover {
+    color: yellow;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: 'New Rocker', cursive;
+}
+
+form {
+    font-size: 20px;
+    font-family: 'New Rocker', cursive;
+    text-shadow: 1.5px 1.5px rgb(197, 160, 160);
+
 }
 
 body {
